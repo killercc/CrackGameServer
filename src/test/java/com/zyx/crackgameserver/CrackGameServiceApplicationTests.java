@@ -53,6 +53,7 @@ class CrackGameServiceApplicationTests {
 //
 //        }
 
+        System.out.println("git test");
         Object mget = redisUtils.get("savegamecontent:xiaoge_D58");
         //JSONObject jsonObject = JSONObject.parseObject(mget);
         System.out.println(mget.toString());
