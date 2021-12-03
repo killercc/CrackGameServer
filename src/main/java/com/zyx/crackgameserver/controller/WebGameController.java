@@ -1,6 +1,7 @@
 package com.zyx.crackgameserver.controller;
 
 
+import com.zyx.crackgameserver.config.anno.AccessLimit;
 import com.zyx.crackgameserver.response.Result;
 import com.zyx.crackgameserver.service.WebGameService;
 import io.swagger.annotations.Api;
@@ -36,9 +37,11 @@ public class WebGameController {
     /**
      * 下载请求 需登录  验证下载次数
      */
+    @AccessLimit
     @GetMapping("/download")
     public Result download(HttpServletRequest request,
                            @RequestParam(value = "gcode")String gcode){
+
         return webGameService.download(request,gcode);
     }
 

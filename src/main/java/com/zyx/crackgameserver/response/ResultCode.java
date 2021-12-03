@@ -42,6 +42,7 @@ public enum ResultCode implements CustomizeResultCode{
     CODE_ERROR(2012,"验证码错误"),
     /* 业务错误 */
     NO_PERMISSION(4001, "没有权限"),
+    ACCESS_LIMIT(4002,"频率过快,休息一下吧"),
 
     /*部门错误*/
     DEPARTMENT_NOT_EXIST(5007, "部门不存在"),
