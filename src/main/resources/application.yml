@@ -38,3 +38,6 @@ Savegame:
 captcha:
   header: CAPTCHA_
   timeout: 30
+
+accesslimit:
+  limitheader: accesslimit

@@ -7,8 +7,10 @@ import com.zyx.crackgameserver.modules.security.utils.JwtUtils;
 import com.zyx.crackgameserver.modules.security.service.MyUserDetailsService;
 import com.zyx.crackgameserver.response.Result;
 import com.zyx.crackgameserver.response.ResultCode;
+import com.zyx.crackgameserver.utils.UserinfoUtils;
 import io.jsonwebtoken.JwtException;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
+@Slf4j
 public class JwtAuthFilter extends BasicAuthenticationFilter  {
 
 
@@ -32,6 +34,7 @@ public class JwtAuthFilter extends BasicAuthenticationFilter  {
     private final MyUserDetailsService myUserDetailsService;
 
     private final RedisUtils redisUtils;
+
 
 
 
@@ -47,12 +50,14 @@ public class JwtAuthFilter extends BasicAuthenticationFilter  {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-
+        log.info("jwtfilter thread name : " + Thread.currentThread().getName());
         String token = request.getHeader(jwtUtils.getHeader());
         //System.out.println("jwtFilter------>Entry");
         if(StringUtils.isNotBlank(token)){
 
             String username = jwtUtils.extractUsername(token);
+            UserinfoUtils.addCurrentUser(username);
+
 
             UserDetails userDetails = myUserDetailsService.loadUserByUsername(username);
 

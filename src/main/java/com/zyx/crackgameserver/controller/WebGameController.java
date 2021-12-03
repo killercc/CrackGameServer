@@ -26,6 +26,7 @@ public class WebGameController {
      * 查找游戏 需要登录
      */
 
+    @AccessLimit
     @GetMapping("getgame")
     public Result getgame(@RequestParam(value = "index")Integer index,
                           @RequestParam(value = "size")Integer size,
@@ -46,6 +47,7 @@ public class WebGameController {
     }
 
 
+    @AccessLimit
     @GetMapping("/getinfo")
     public Result getUserinfo(HttpServletRequest request) throws ExecutionException, InterruptedException {
         String auth = request.getHeader("auth");
@@ -53,6 +55,7 @@ public class WebGameController {
 
     }
 
+    @AccessLimit
     @GetMapping("/getsavegames")
     public Result getsavegames(HttpServletRequest request,
                                @RequestParam(value = "index")Integer index,
@@ -64,6 +67,7 @@ public class WebGameController {
     /**
      * 用户 卡密充值接口 需要登录
      */
+    @AccessLimit
     @GetMapping("/charge")
     public Result userCharge(HttpServletRequest request,
                              @RequestParam(value = "regCode")String regCode){
