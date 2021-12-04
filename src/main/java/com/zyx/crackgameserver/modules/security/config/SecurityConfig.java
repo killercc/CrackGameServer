@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     private final MyUserDetailsService myUserDetailsService;
-    private final CorsFilter corsFilter;
+    //private final CorsFilter corsFilter;
     //private final  AuthSuccessHandler authSuccessHandler;
     //private final  AuthFailureHanlder authFailureHanlder;
     private final  AuthEntryPointHandler authEntryPointHandler;

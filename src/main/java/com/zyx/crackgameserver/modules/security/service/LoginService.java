@@ -103,10 +103,14 @@ public class LoginService extends ResponseWriteJson {
         String password = sysUser.getPassword();
 
         try {
+            if (!verfycaptha(codeuuid,code)){
+                throw new CaptchaException("error code");
+            }
 
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(username,password)
             );
+
             final UserDetails userDetails= myUserDetailsService.loadUserByUsername(username);
             final String token = jwtUtils.generateToken(userDetails);
             //设置过期时间为 7天

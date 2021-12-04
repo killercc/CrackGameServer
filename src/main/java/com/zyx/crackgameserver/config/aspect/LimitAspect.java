@@ -35,8 +35,8 @@ public class LimitAspect {
     @Autowired
     private RedisUtils redisUtils;
 
-    @Autowired
-    private JwtUtils jwtUtils;
+//    @Autowired
+//    private JwtUtils jwtUtils;
 
     @Value("${accesslimit.limitheader}")
     private String limitheader;

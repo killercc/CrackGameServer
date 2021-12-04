@@ -1,22 +1,18 @@
 package com.zyx.crackgameserver;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.zyx.crackgameserver.modules.redis.utils.RedisUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
 
 @SpringBootTest
 class CrackGameServiceApplicationTests {
 
     @Autowired
     private RedisUtils redisUtils;
+
+
+
     @Test
     void contextLoads() {
     }
@@ -53,10 +49,10 @@ class CrackGameServiceApplicationTests {
 //
 //        }
 
-        System.out.println("git test");
-        Object mget = redisUtils.get("savegamecontent:xiaoge_D58");
-        //JSONObject jsonObject = JSONObject.parseObject(mget);
-        System.out.println(mget.toString());
+//        System.out.println("git test");
+//        Object mget = redisUtils.get("savegamecontent:xiaoge_D58");
+//        //JSONObject jsonObject = JSONObject.parseObject(mget);
+//        System.out.println(mget.toString());
 //        for (Object o : mget) {
 //            System.out.println(o);
 //        }
@@ -70,5 +66,6 @@ class CrackGameServiceApplicationTests {
 //            System.out.println((String) object);
 //        }
     }
+
 
 }
